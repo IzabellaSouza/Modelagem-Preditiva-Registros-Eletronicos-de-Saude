@@ -1,4 +1,5 @@
-# Predictive Modeling in Electronic Health Records
+
+![Predictive Modeling in Electronic Health Records](https://user-images.githubusercontent.com/91201232/134506117-74e637f6-c600-4405-a86f-b71800f6e4ce.png)
 
 O objetivo deste projeto foi prever se um paciente poderá ser readmitido em uma clínica no período de 30 dias após alta. Para isso, foi feito a construção de diversos modelos preditivos usando registros eletrônicos de saúde de uma clínica fictícia.
 
