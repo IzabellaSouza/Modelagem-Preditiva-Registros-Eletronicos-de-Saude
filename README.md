@@ -32,10 +32,35 @@ Um Registro Eletrônico de Saúde (Electronic Health Records - EHR) é uma vers�
 - Automatiza e simplifica o fluxo de trabalho do provedor.
 
 Um dos principais recursos de um EHR é que as informações de saúde podem ser criadas e gerenciadas por provedores autorizados em um formato digital capaz de ser compartilhado com outros provedores em mais de uma organização de saúde. Os EHRs são construídos para compartilhar informações com outros prestadores de cuidados de saúde e organizações - como laboratórios, especialistas, instalações de imagens médicas, farmácias, instalações de emergência e clínicas de escolas e locais de trabalho - para que eles contenham informações de todos os clínicos envolvidos no atendimento de um paciente.
+<br>
+<br>
 
+## Dados
 
+Para prever se um paciente poderá ser readmitido em uma clínica no período de 30 dias após alta, foi feito a construção de diversos modelos preditivos usando registros eletrônicos de saúde de uma clínica fictícia.
 
+### Arquivos
 
+Estão localizados no diretório `dados`
+
+- dataset.csv - Registros eletrônicos de saúde
+
+### Dicionário do Dados
+
+- IDADE - Idade do paciente (variável numérica)
+- SEXO_F - paciente do sexo feminino (variável categórica)
+- SEXO_M - paciente do sexo masculino (variável categórica)
+- ADM_CORRENTE_DIAS - Dias desde a admissão atual (variável numérica)
+- RECEB_MEDICAMENTOS - Recebeu medicamentos na última internação (variável categórica)
+- FEZ_EXAMES - Fez exames na última internação (variável categórica)
+- DEPEND_QUIMICO - Dependendo químico (variável categórica)
+- FUMANTE - Fumante (variável categórica)
+- ALCOOLISMO - Alcoolismo (variável categórica)
+- NUM_DIAS_INT_PREVIA - Número de internações anteriores (variável numérica)
+- ADM_PREVIA_DIAS - Dias da admissão anterior (variável numérica)
+- NUM_DIAS_LIC_MEDICA - Licença médica (variável numérica)
+- READMISSAO_30_DIAS - Readmissão dentro de 30 dias após a alta. Variável target. 0 - Não / 1 - Sim
+<br>
 
 ## Etapas
 
@@ -44,3 +69,66 @@ Um dos principais recursos de um EHR é que as informações de saúde podem ser
 - [x] Construção dos Modelos Preditivos
 - [x] Deploy do Modelo
 - [x] Ferramentas Utilizadas
+<br>
+
+## Progresso
+### Importação e Identificação do Dados
+- Importação dos pacotes e bibliotecas
+- Carregamento dos dados
+- Entendimento do projeto
+
+### Análise Exploratória
+- Verificando se tem valores ausentes
+- Função para visualizar a distribuição de cada variável
+- Checando Outliers
+- Correlação e Associação
+- Função para calcular a associação entre variáveis categóricas
+- Pré-Processamento
+
+### Construção dos Modelos Preditivos
+- Definição dos cinco melhores modelos Preditivos dado o problema de previsão se paciente será readmitido na clínica em até 30 dias após a alta:
+
+  - Regressão Logística
+  - RandomForest
+  - Naive Bayes 
+    - Modelo MultinomialNB
+    - Modelo BernoulliNB
+    - Modelo GaussianNB
+  - KNN
+  - Deep Learning
+  
+- Realização de Cross Validation nos dados usando 'K-Folds Cross Validation'
+- Otimização de Hiperparâmetros usando 'Grid Search'
+- Comparação de performance dos algoritmos de Machine Learning
+- Preparação da Versão Final do Modelo
+
+### Deploy do Modelo
+- Entrada com dados de um novo paciente
+- Ajuste do shape dos dados para o modelo
+- Realização da previsão deste novo paciente 
+
+### Ferramentas Utilizadas
+
+- Numpy
+- Scipy
+- SMOTE
+- Keras
+- pickle
+- Pandas
+- Seaborn
+- Sklearn
+- XGBoost
+- Matplotlib
+- Tensorflow
+- Scikitplot
+- GaussianNB
+- BernoulliNB
+- MultinomialNB
+- LogisticRegression
+- KNeighborsClassifier
+- RandomForestClassifier
+<br>
+
+## Criador
+
+**Izabella Souza**
