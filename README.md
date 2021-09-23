@@ -102,10 +102,51 @@ Estão localizados no diretório `dados`
 - Comparação de performance dos algoritmos de Machine Learning
 - Preparação da Versão Final do Modelo
 
+```python
+# Cria e treina o modelo
+modelo_final_rf = RandomForestClassifier(n_estimators = 200)
+modelo_final_rf.fit(X_treino, Y_treino)
+
+# Salvando o modelo
+import pickle
+filename = 'modelos/modelo_final.pkl'
+pickle.dump(modelo_final_rf, open(filename, 'wb'))
+
+# Carregando o Modelo
+classificador_pacientes = pickle.load(open(filename, 'rb'))
+
+classificador_pacientes
+
+```
+
 ### Deploy do Modelo
 - Entrada com dados de um novo paciente
 - Ajuste do shape dos dados para o modelo
 - Realização da previsão deste novo paciente 
+
+```python
+X_teste.head()
+X_teste.shape
+
+# Dados de um novo paciente
+novo_paciente = np.array([54,1,0,1,0,1,0,0,0,0,0,0])
+print(novo_paciente.shape)
+print(novo_paciente)
+
+# Ajustando o shape dos dados para o modelo
+novo_paciente_reshaped = novo_paciente.reshape(1, -1)
+print(novo_paciente_reshaped.shape)
+print(novo_paciente_reshaped)
+
+# Fazendo a previsão
+print("\nO paciente será readmitido na clínica em até 30 dias após a alta?")
+previsao = classificador_pacientes.predict(novo_paciente_reshaped)
+if previsao == 0:
+      print("\nNão, o paciente não deve ser readmitido na clínica em até 30 dias após a alta.")
+else:
+      print("\nSim, o paciente deve ser readmitido na clínica em até 30 dias após a alta.")
+
+```
 
 ### Ferramentas Utilizadas
 
@@ -115,12 +156,12 @@ Estão localizados no diretório `dados`
 - Keras
 - pickle
 - Pandas
+- XGBoost
 - Seaborn
 - Sklearn
-- XGBoost
+- Scikitplot
 - Matplotlib
 - Tensorflow
-- Scikitplot
 - GaussianNB
 - BernoulliNB
 - MultinomialNB
