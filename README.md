@@ -122,7 +122,7 @@ classificador_pacientes
 ### Deploy do Modelo
 - Entrada com dados de um novo paciente
 - Ajuste do shape dos dados para o modelo
-- Realização da previsão deste novo paciente 
+- Realização da previsão de novos pacientes 
 
 ```python
 X_teste.head()
